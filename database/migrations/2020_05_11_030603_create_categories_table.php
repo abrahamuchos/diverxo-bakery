@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
 //      Content
       $table->string('name', 45)->unique();
       $table->string('slug',65);
-      $table->string('description',70);
+      $table->string('description',70)->nullable();
       $table->timestamps();
 
 //      Foreign Keys
