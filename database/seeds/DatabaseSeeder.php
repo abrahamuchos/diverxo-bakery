@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
   {
     $this->call([
       UserSeeder::class,
+      AttributeSeeder::class,
       CategorySeeder::class,
+      ProductSeeder::class,
     ]);
 
 //    To delete table

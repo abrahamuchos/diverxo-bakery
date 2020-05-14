@@ -52,6 +52,27 @@ class Product extends Model
     return $this->belongsTo(Category::class, 'category_id');
   }
 
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function sizeUnit(){
+  return $this->belongsTo(Attribute::class,'size_unit_id');
+  }
+
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function volumeUnit(){
+    return $this->belongsTo(Attribute::class,'volume_unit_id');
+  }
+
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  public function weightUnit(){
+    return $this->belongsTo(Attribute::class,'weight_unit_id');
+  }
+
 
 
 
