@@ -33,18 +33,18 @@ class AttributeSeeder extends Seeder
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'cm',
-      'value' => 'Centímetro'
+      'name' => 'Centímetro',
+      'value' => 'cm'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'mm',
-      'value' => 'Milímetro'
+      'name' => 'Milímetro',
+      'value' => 'mm'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'in',
-      'value' => 'Pulgada'
+      'name' => 'Pulgada',
+      'value' => 'in'
     ]);
 
 //    Weight Unit
@@ -53,23 +53,23 @@ class AttributeSeeder extends Seeder
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'g',
-      'value' => 'gramo'
+      'name' => 'Gramo',
+      'value' => 'gr'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'Kl',
-      'value' => 'Kilogramo'
+      'name' => 'Kilogramo',
+      'value' => 'kl'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'Lb',
-      'value' => 'Libra'
+      'name' => 'Libra',
+      'value' => 'lb'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'Oz',
-      'value' => 'Onza'
+      'name' => 'Onza',
+      'value' => 'oz'
     ]);
 
 
@@ -79,25 +79,54 @@ class AttributeSeeder extends Seeder
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'oz',
-      'value' => 'Onza líquida estadounidense'
+      'name' => 'Onza líquida estadounidense',
+      'value' => 'oz'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'tz',
-      'value' => 'Taza americana oficial'
+      'name' => 'Taza americana oficial',
+      'value' => 'tz'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'ml',
-      'value' => 'Mililitro'
+      'name' => 'Mililitro',
+      'value' => 'ml'
     ]);
     Attribute::create([
       'attribute_id' => $parent->id,
-      'name' => 'l',
-      'value' => 'Litro'
+      'name' => 'Litro',
+      'value' => 'l'
     ]);
 
+//    Type of social network
+    $parent = Attribute::create([
+      'name' => 'Social networks',
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Facebook',
+      'value' => 'Fb'
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Twitter',
+      'value' => 'Tw'
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Likedind',
+      'value' => 'Lk'
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Youtube',
+      'value' => 'Yt'
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Instagram',
+      'value' => 'Ig'
+    ]);
 
 
   }
