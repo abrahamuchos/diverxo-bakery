@@ -6,3 +6,19 @@
   width: 90%;
   vertical-align: middle;
 }
+
+h1, h2 , h3, h4, h5{
+  color: $type-color !important;
+}
+
+p{
+  color: $type-color;
+}
+
+span{
+  color: $type-color-secondary;
+}
+
+.text-muted{
+  color: $type-color-secondary;
+}
