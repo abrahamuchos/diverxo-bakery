@@ -13,6 +13,8 @@ class ProductSeeder extends Seeder
    */
   public function run()
   {
+    Product::truncate();
+
 //    Panes
     Product::create([
       'category_id' => 1,

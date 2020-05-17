@@ -12,6 +12,8 @@ class AttributeSeeder extends Seeder
    */
   public function run()
   {
+    Attribute::truncate();
+
 //    Roles Attributes
     $group = Attribute::create([
       'name' => 'Groups',
