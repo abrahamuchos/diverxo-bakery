@@ -23,6 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
     'email' => $faker->unique()->safeEmail,
     'is_admin' => $faker->boolean(40),
     'name' => $faker->firstName($gender),
+    'gender' => ($gender == 'male') ? true : false,
     'last_name' => $faker->lastName,
     'avatar' => ($gender == 'male') ? 'Uploads/Profiles/avatar-male.svg' : 'Uploads/Profiles/avatar-female.svg',
     'email_verified_at' => now(),
