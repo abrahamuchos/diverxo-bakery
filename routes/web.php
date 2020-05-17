@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test', function () {
+Route::get('dashboard', function () {
     return Miscellaneous::slugify('HolaSoy abraham');
-});
+})->name('dashboard');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
