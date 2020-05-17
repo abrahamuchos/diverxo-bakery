@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
       //      Content
       $table->string('email')->unique();
       $table->boolean('is_admin')->default('false');
+      $table->boolean('gender');
       $table->string('name', 32);
       $table->string('last_name', 32);
       $table->string('avatar', 255)->nullable();
