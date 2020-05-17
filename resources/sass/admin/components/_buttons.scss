@@ -1,0 +1,18 @@
+.dash-btn-primary{
+  color: $white !important;
+  background-color: $dash-blue-smooth !important;
+}
+
+.btn-primary{
+  @extend .primary-color;
+}
+
+.cursor-default{
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+input[type="submit"]:disabled{
+  cursor: default !important;
+  pointer-events: none !important;
+}

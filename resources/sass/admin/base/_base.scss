@@ -1,0 +1,63 @@
+
+.dark-bg-admin {
+  background: #363947 !important;
+}
+.dash-blue-bg{
+  background: $dash-blue-smooth;
+}
+
+nav{
+  .collapse{
+    .navbar-nav{
+      font-size: 17px;
+    }
+  }
+}
+
+.text-info{
+  color: rgb(248, 138, 163) !important;
+}
+
+.text-info{
+  color: rgb(248, 138, 163) !important;
+}
+
+.btn-edit{
+  background-color: #6CB8E6 !important;
+  color: white !important;
+}
+
+.btn-delete{
+  background-color: #DE5675 !important;
+  color: white !important;
+}
+.w-auto{
+  width: auto;
+}
+
+.btn-danger{
+  background-color: #FF4A52 !important;
+}
+.btn-success{
+  background-color: #9EE843 !important;
+}
+
+
+.modal-success .modal-header{
+  background-color: #9EE843 !important;
+}
+.modal-dialog.modal-notify.modal-success .fab, .modal-dialog.modal-notify.modal-success .far, .modal-dialog.modal-notify.modal-success .fas{
+  color: #9EE843 !important;
+}
+.btn-dark-mode{
+  border: none !important;
+  color: black !important;
+}
+
+input:disabled{
+  cursor: not-allowed !important;
+}
+
+.not-allowed{
+  cursor: not-allowed !important;
+}

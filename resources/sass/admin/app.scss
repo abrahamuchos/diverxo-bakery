@@ -1,0 +1,33 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'abstracts/variables';
+
+//Mixins
+@import "abstracts/mixins";
+
+// Vendors
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import "vendors/mdb/addons/datatables.min";
+@import "vendors/mdb/addons/datatables-select.min";
+@import "vendors/mdb/addons-pro/cards-extended.min";
+@import "vendors/mdb/addons-pro/chat.min";
+@import "vendors/mdb/addons-pro/stepper.min";
+@import "vendors/mdb/addons-pro/timeline.min";
+@import "vendors/mdb/mdb.min";
+@import "vendors/mdb/mdb-dashboard.min";
+
+// Base
+@import 'base/base';
+@import "base/text";
+@import "base/color";
+
+// Components
+@import "components/buttons";
+@import "components/dropzone";
+@import "components/pagination";
+@import "components/cards";
+@import "components/navigation";
+@import "components/modal";
+@import "components/forms";
