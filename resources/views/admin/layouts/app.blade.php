@@ -10,7 +10,6 @@
 	<title>Admin |@yield('title')</title>
 
 	<!-- Scripts -->
-
 	<!-- Fonts -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 
@@ -25,7 +24,7 @@
 		<div class="container">
 			<a class="navbar-brand"
 				 href="{{ route('dashboard')}}">
-				<img src="{{ asset('image/svg/Alternos-Horizontal-02.svg') }}" alt="Alternos logo" width="150px">
+				<img src="{{ asset('img/svg/logo-negro.svg') }}" alt="Bakery logo" width="150px">
 			</a>
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -46,29 +45,27 @@
 							{{--<a class="nav-link text-center text-md-left" href="{{ route('dashboard') }}">Dashboard</a>--}}
 						{{--</li>--}}
 						<li class="nav-item pr-md-3">
-							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.category.index') }}--}}">Category</a>
+							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.category.index') }}--}}">Categories</a>
 						</li>
 						<li class="nav-item pr-md-3">
-							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Posts</a>
+							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Products</a>
+						</li>
+						<li class="nav-item pr-md-3">
+							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Orders</a>
 						</li>
 						<li class="nav-item pr-md-3">
 							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.user.index') }}--}}">Users</a>
 						</li>
 
-						<li class="nav-item dropdown">
+						<li class="nav-item dropdown nav-user">
 							<a id="navbarDropdown" class="nav-link text-center text-md-left dropdown-toggle" href="/#" role="button" data-toggle="dropdown"
 								 aria-haspopup="true" aria-expanded="false" v-pre>
-								@if(Auth::user()->gender == 1)
-									<img src="{{ asset('image/svg/man.svg') }}" alt="Avatar" class="md-avatar rounded-circle mr-md-1">
-								@else
-									<img src="{{ asset('image/svg/girl.svg') }}" alt="Avatar" class="md-avatar rounded-circle mr-md-1">
-								@endif
+								<img src="{{ asset(Auth::user()->avatar) }}" alt="Avatar" class="md-avatar rounded-circle mr-md-1">
 								{{ Auth::user()->name }} <span class="caret"></span>
-
 							</a>
 
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="{{--{{ route('admin.user.show', Auth::user()->id) }}--}}">Edit Profile</a>
+								<a class="dropdown-item" href="{{--{{ route('admin.user.show', Auth::user()->id) }}--}}">My Profile</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="{{--{{ route('logout') }}--}}"
 									onclick="event.preventDefault();
