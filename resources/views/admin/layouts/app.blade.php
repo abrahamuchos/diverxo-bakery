@@ -45,7 +45,7 @@
 							{{--<a class="nav-link text-center text-md-left" href="{{ route('dashboard') }}">Dashboard</a>--}}
 						{{--</li>--}}
 						<li class="nav-item pr-md-3">
-							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.category.index') }}--}}">Categories</a>
+							<a class="nav-link text-center text-md-left" href="{{ route('admin.category.index') }}">Categories</a>
 						</li>
 						<li class="nav-item pr-md-3">
 							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Products</a>
