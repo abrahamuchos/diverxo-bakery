@@ -48,7 +48,7 @@
 							<a class="nav-link text-center text-md-left" href="{{ route('admin.category.index') }}">Categories</a>
 						</li>
 						<li class="nav-item pr-md-3">
-							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Products</a>
+							<a class="nav-link text-center text-md-left" href="{{ route('admin.product.index') }}">Products</a>
 						</li>
 						<li class="nav-item pr-md-3">
 							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.blog.index') }}--}}">Orders</a>
