@@ -34,6 +34,20 @@ Route::prefix('admin')->middleware('auth')->group(function (){
   Route::post('category/edit/{id}', 'Admin\CategoryController@update')->name('admin.category.update');
   Route::delete('category/delete/{id}', 'Admin\CategoryController@destroy')->name('admin.category.destroy');
 
+//  Products
+  Route::get('products', 'Admin\ProductController@index')->name('admin.product.index');
+  Route::get('product/create', 'Admin\ProductController@create')->name('admin.product.create');
+  Route::post('product/storage', 'Admin\ProductController@store')->name('admin.product.store');
+  Route::get('product/{id}', 'Admin\ProductController@show')->name('admin.product.show');
+  Route::post('product/edit/{id}', 'Admin\ProductController@update')->name('admin.product.update');
+  Route::delete('product/delete/{id}', 'Admin\ProductController@destroy')->name('admin.product.destroy');
+
+//  Media (Images and more)
+  Route::post('media/store/{id?}', 'Admin\MediaController@store')->name('admin.media.store');
+  Route::delete('media/destroy/{id?}', 'Admin\MediaController@destroy')->name('admin.media.destroy');
+  Route::get('media/show/{id}/{type?}', 'Admin\MediaController@show')->name('admin.media.show');
+  Route::post('media/simple-image/', 'Admin\MediaController@storeImage')->name('admin.simple.image');
+
 
 });
 
