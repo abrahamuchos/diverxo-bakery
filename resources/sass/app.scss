@@ -2,7 +2,29 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import 'abstracts/variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+//Abstracts
+@import 'abstracts/mixins';
+
+// Base
+@import 'base/base';
+@import 'base/fonts';
+@import "base/title";
+
+// Components
+@import "components/navbar";
+@import "components/footer";
+@import "components/buttons";
+@import "components/cards";
+@import "components/forms";
+@import "components/modals";
+
+// Pages
+@import "pages/home";
+
+// Sorry
+@import "shame";
