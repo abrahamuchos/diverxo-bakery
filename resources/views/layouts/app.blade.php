@@ -39,7 +39,7 @@
 				<ul class="navbar-nav ml-auto d-lg-flex justify-content-around ">
 
 					<li class="nav-item active text-center">
-						<a class="nav-link" href="#">Home</a>
+						<a class="nav-link" href="{{ route('home') }}">Home</a>
 					</li>
 
 					<li class="nav-item text-center">
