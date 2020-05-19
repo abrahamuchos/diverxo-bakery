@@ -1,0 +1,104 @@
+#hero{
+  width: 100%;
+  height: 95vh;
+  background-image: url("/img/header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.slide-item{
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @include respond-to(md){
+    margin-left: 2em;
+  }
+  .slide-caption{
+    position: absolute;
+    z-index: 100;
+    color: $black-primary;
+    background-color: $white;
+    font-size: 24px;
+    font-weight: bold;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    padding: 0.3em 2em;
+  }
+  .slide-cta{
+    font-size: 16px;
+    position: absolute;
+    z-index: 100;
+    top: 85%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    padding: 0.3em 2em;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .slide-item{min-height: 280px;background-position: center;    background-size: cover;} }
+@media screen and (min-width: 40em) {
+  .slide-item{ height: 360px; min-height: 360px;} }
+@media screen and (min-width: 64em) {
+  .slide-item{ height: 600px; min-height: 600px;}}
+
+#about-us{
+  background-color: $black-primary;
+  color: $white;
+  .title-1{
+    padding-top: 7%;
+    color: $white;
+  }
+}
+
+#products{
+  background-color: $white-secondary;
+  .title-1{
+    padding-top: 7%;
+  }
+}
+
+#maps{
+  background-color: $black-primary;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  #map{
+    border-radius: 21px;
+  }
+  #card-contact{
+    margin-top: 2rem;
+    @include respond-to(md){
+      margin-top: 0;
+    }
+    @include respond-to(lg){
+      position: absolute;
+      transform: translate(15%, -17%);
+      z-index: 100;
+    }
+  }
+  .card{
+    border-radius: 55px;
+    -webkit-box-shadow: -19px -5px 42px -8px rgba(0,0,0,0.28);
+    -moz-box-shadow: -19px -5px 42px -8px rgba(0,0,0,0.28);
+    box-shadow: -19px -5px 42px -8px rgba(0,0,0,0.28);
+    @include respond-to(lg){
+      padding: 3rem 2rem;
+
+    }
+  }
+
+}
+
+
+
+
+
+
+.margin{
+  height: 10vh;
+}
+

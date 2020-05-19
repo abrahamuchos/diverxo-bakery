@@ -38,4 +38,12 @@ class Category extends Model
   {
     return $this->hasMany(Product::class, 'category_id');
   }
+
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function medias()
+  {
+    return $this->hasMany(Media::class, 'category_id', 'id');
+  }
 }

@@ -1,0 +1,129 @@
+body{
+  background-color: $white;
+  font-family: 'Source Sans Pro Regular', sans-serif;
+  overflow-x: hidden;
+}
+
+a{
+  color: black;
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.truncate{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-line-through{
+  text-decoration: line-through;
+}
+
+.title-muted{
+  color: $black-secondary;
+}
+
+#subscriber{
+  background-color: #3DA0D5;
+  color: white;
+  font-weight: bold;
+  @include respond-to(md){
+    height: 20vh;
+  }
+  @include respond-to(lg){
+    height: 25vh;
+  }
+}
+
+.bg-dark{
+  background-color: $black !important;
+}
+
+.modal{
+  z-index: 20001;
+  //.modal-body{
+  //  img{
+  //    width: 70%;
+  //  }
+  //}
+}
+
+
+#search{
+  .form-control{
+    border-width: 1.7px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    &:focus{
+      border-color: transparent;
+      border-bottom-color: #a6d3ec;
+      box-shadow: none;
+    }
+  }
+
+  .has-search {
+    .form-control {
+      padding-left: 2.375rem;
+    }
+    .form-control-feedback {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.375rem;
+      height: 2.375rem;
+      line-height: 2.375rem;
+      text-align: left;
+      pointer-events: none;
+      color: #aaa;
+      opacity: 0.3;
+    }
+  }
+}
+
+
+
+//Autocomplete search plugin
+.easy-autocomplete-container{
+  z-index: 20001 !important;
+}
+
+.easy-autocomplete{
+  width: 100% !important;
+  input{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none;
+    font-style: normal !important;
+    &::placeholder{
+      color: #d6d7db;
+    }
+  }
+}
+
+.nav-icon-dropdown{
+  width: 1.5em;
+}
+
+.twitter-share-button{
+  height: 28px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  background-color: #1b95e0;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  &:hover{
+    color:white;
+  }
+  i{
+   color: white;
+  }
+
+}
