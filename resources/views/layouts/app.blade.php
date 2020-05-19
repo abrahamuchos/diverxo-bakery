@@ -135,3 +135,4 @@
 {{-- Bootstrap core JavaScript --}}
 <script type="text/javascript" src="{{ asset('/js/bootstrap.js') }}"></script>
 @yield('scripts')
+{{-- Comment--}}
