@@ -1,0 +1,27 @@
+footer{
+  background-color: $black-primary;
+  padding: 2em 0;
+  color: $white !important;
+  .footer-caption{
+    a{
+      color: $white !important;
+    }
+  }
+
+  .footer-brand{
+    img{
+      width: 7rem;
+    }
+  }
+
+  .footer-social{
+    img{
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+
+  .footer-wayu{
+    border-top: 1px solid $white
+  }
+}

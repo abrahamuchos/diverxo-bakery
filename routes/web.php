@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
+//Emails
+Route::prefix('emails')->group(function (){
+  Route::post('send/contactUs', 'EmailController@contactUs')->name('email.contact-us');
+});
 
 // Admin
 Route::prefix('admin')->middleware('auth')->group(function (){
@@ -52,4 +55,3 @@ Route::prefix('admin')->middleware('auth')->group(function (){
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -1,0 +1,49 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$black-primary:#1C1B17;
+$black-secondary: #4D4D4D;
+$white-secondary: #F4F4F4;
+$blue: #3DA0D5;
+$black: #272324;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #E23F84;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+// Breakpoints
+$grid-breakpoints: (
+  // Extra small screen / phone
+    xs: 0,
+  // Small screen / phone
+    sm: 576px,
+  // Medium screen / tablet
+    md: 768px,
+  // Large screen / desktop
+    lg: 992px,
+  // Extra large screen / wide desktop
+    xl: 1200px
+);
+
+//Z-layers
+$z-layers: (
+    bottomless-pit: -9999,
+    default: 1,
+    dropdown: 3000,
+    overlay: 1029,
+    modal: 4001
+);
+
+
+
