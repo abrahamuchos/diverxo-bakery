@@ -1,0 +1,8 @@
+.title-1{
+  color: $black-primary;
+  text-transform: uppercase;
+  @include respond-to(lg){
+    font-size: 3.25rem;
+
+  }
+}
