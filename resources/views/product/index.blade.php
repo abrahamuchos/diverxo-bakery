@@ -11,7 +11,9 @@
 			{{--<div class="sidebar-heading">Filters </div>--}}
 			<div class="list-group list-group-flush">
 				@forelse($categories as $category)
-					<a href="#" class="list-group-item list-group-item-action bg-light">{{ $category->name }}</a>
+					<a href="{{ route('product.index', ['findByPrice'=> request()->findByPrice,'findByCategory' => $category->slug]) }}" class="list-group-item list-group-item-action bg-light">
+						{{ $category->name }}
+					</a>
 				@empty
 				@endforelse
 
@@ -45,11 +47,16 @@
 								<img src="{{ asset('img/svg/order.svg') }}" alt="Filters icon"> Order By
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Price: Low to Hight</a>
-								<a class="dropdown-item" href="#">Price: Hight to Low</a>
+								<a class="dropdown-item" href="{{ route('product.index',['findByPrice' => 'asc', 'findByCategory' => request()->findByCategory]) }}">
+									Price: Low to Hight
+								</a>
+								<a class="dropdown-item" href="{{ route('product.index', ['findByPrice' => 'desc', 'findByCategory' => request()->findByCategory]) }}">
+									Price: Hight to Low
+								</a>
 							</div>
 						</div>
 					</div>
+
 					@forelse($products as $product)
 						<div class="col-12 col-md-6 col-lg-4 mt-4">
 							<div class="card ml-3">
@@ -109,9 +116,11 @@
 					@endforelse
 
 					{{-- Pagination --}}
-					<div class="col-12 mt-5 mb-3">
-						{{ $products->links() }}
-					</div>
+					@if($products)
+						<div class="col-12 mt-5 mb-3">
+							{{ $products->appends(request()->input())->links() }}
+						</div>
+					@endif
 					{{--/End Pagination --}}
 
 				</div>

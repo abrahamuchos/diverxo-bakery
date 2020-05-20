@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+  protected $findByPrice;
+  protected $findByCategory;
+
+  public function __construct()
+  {
+    $this->findByPrice = request()->findByPrice;
+    $this->findByCategory = request()->findByCategory;
+  }
+
   /**
    * Display a listing of the resource.
    *
@@ -15,9 +24,25 @@ class ProductController extends Controller
    */
   public function index()
   {
-    $products = Product::with('sizeUnit','volumeUnit','weightUnit', 'medias', 'category')->paginate(9);
     $categories = Category::all();
+    $products = Product::with('sizeUnit','volumeUnit','weightUnit', 'medias', 'category');
 
+    if($this->findByCategory && $this->findByPrice ){
+      $products = $this->_searchByCategories($products, $this->findByCategory);
+      $products = $this->_searchByPrice($products, $this->findByPrice);
+    }elseif($this->findByCategory) {
+      $products = $this->_searchByCategories($products, $this->findByCategory);
+
+    }elseif ($this->findByPrice){
+      $products = $this->_searchByPrice($products, $this->findByPrice);
+    }
+
+//    Validate if product is has values
+    if(is_null($products)) {
+      $products = array();
+    }else{
+      $products = $products->paginate(9);
+    }
     return view('product.index',[
       'products' => $products,
       'categories' => $categories
@@ -88,5 +113,38 @@ class ProductController extends Controller
   public function destroy($id)
   {
     //
+  }
+
+
+  private function _searchByPrice($products, $orderBy)
+  {
+    if ($orderBy === 'desc') {
+      return $products->orderBy('price', $orderBy);
+    } else {
+      return $products->orderBy('price', $orderBy);
+    }
+  }
+
+
+  private function _searchByCategories($products, $slug)
+  {
+
+    $categoryParent = Category::where('slug', $slug)->first();
+
+    if(is_null($categoryParent->category_id))
+    {
+      $categoryChildren = Category::where('category_id', $categoryParent->id)->pluck('id')->toArray();
+      array_push($categoryChildren, $categoryParent->id);
+      $products->whereHas('category', function($q) use ($categoryChildren){
+        return $q->whereIn('id',$categoryChildren);
+      });
+
+    } else {
+      $products->whereHas('category', function($q) use ($slug){
+        return $q->where('slug','=', $slug);
+      });
+    }
+    return $products;
+
   }
 }
