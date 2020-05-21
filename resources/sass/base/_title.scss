@@ -6,3 +6,21 @@
 
   }
 }
+
+.title-2{
+  color: $black-secondary;
+  font-weight: bold;
+  @include respond-to(lg){
+    font-size: 3.25rem;
+
+  }
+}
+
+.title-3{
+  color: $black-secondary;
+  font-weight: bold;
+  @include respond-to(lg){
+    font-size: 1.25rem;
+
+  }
+}

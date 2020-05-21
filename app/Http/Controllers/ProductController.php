@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -71,14 +72,26 @@ class ProductController extends Controller
   }
 
   /**
-   * Display the specified resource.
-   *
-   * @param  int $id
-   * @return \Illuminate\Http\Response
+   * Show a specific product
+   * @param $slug
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function show($id)
+  public function show($slug)
   {
-    //
+    $mightAlsoLikes = Product::mightAlsoLike()->get();
+
+    try{
+      $product = Product::where('slug',  $slug)->with('sizeUnit','volumeUnit','weightUnit', 'medias', 'category')->first();
+
+    }catch (ModelNotFoundException $e){
+      return view('product.404');
+    }
+
+    return view('product.show',[
+      'product' => $product,
+      'mightAlsoLikes' => $mightAlsoLikes
+    ]);
+
   }
 
   /**

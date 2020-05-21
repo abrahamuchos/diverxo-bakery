@@ -60,6 +60,34 @@
   }
 }
 
+#ProductDetail{
+  .product-header{
+    border-bottom: 0.8px solid $black-secondary;
+    padding-bottom: 1.5rem;
+    h1{
+      overflow-y: hidden;
+      max-height: 2.5em;
+    }
+    .product-header-info{
+      border-bottom: 0.8px solid $black-secondary;
+    }
+  }
+  .stars{
+    img{
+      width: 1.4rem;
+    }
+  }
+}
+
+#mightAlsoLike{
+  background-color: $white-secondary;
+  @include respond-to(lg){
+    padding: 5% 0;
+  }
+}
+
+
+
 
 
 

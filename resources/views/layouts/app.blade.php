@@ -47,7 +47,7 @@
 					</li>
 
 					<li class="nav-item text-center">
-						<a class="nav-link" href="#">Shop</a>
+						<a class="nav-link" href="{{ route('product.index') }}">Shop</a>
 					</li>
 
 					<!-- Authentication Links -->

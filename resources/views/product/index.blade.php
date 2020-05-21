@@ -98,10 +98,17 @@
 
 										{{-- Cta--}}
 										<div class="col-6">
-											<a href="#" class="btn btn-outline-tertiary col-12">View more</a>
+											<a href="{{ route('product.show', $product->slug) }}" class="btn btn-outline-tertiary col-12">View more</a>
 										</div>
 										<div class="col-6">
-											<a href="#" class="btn btn-outline-primary col-12">Add cart</a>
+											@if ($product->stock > 0)
+												<form class="col-12 p-0" action="{{ route('cart.store', $product) }}" method="POST">
+													{{ csrf_field() }}
+													<button type="submit" class="btn btn-outline-primary col-12">Add to Cart</button>
+												</form>
+											@else
+												<a href="#" class="btn btn-outline-primary col-12 disabled">Add cart</a>
+											@endif
 										</div>
 										{{--/End Cta--}}
 									</div>
@@ -129,8 +136,6 @@
 		<!--/End Page Content -->
 
 	</div>
-
-
 
 
 @endsection

@@ -15,17 +15,31 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
+/* Web */
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Shop
 Route::get('/shop', 'ProductController@index')->name('product.index');
-//Route::get('/shop/categories/{slug}', 'ProductController@searchByCategories')->name('product.categories');
+Route::get('/shop/{slug}', 'ProductController@show')->name('product.show');
+
+//Cart
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart/{product}', 'CartController@store')->name('cart.store');
+Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
+Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+
+Route::get('/cartDestroy/{id}', function($id){
+  Cart::remove($id);
+});
 
 //Emails
 Route::prefix('emails')->group(function (){
   Route::post('send/contactUs', 'EmailController@contactUs')->name('email.contact-us');
 });
 
-// Admin
+/* Admin */
 Route::prefix('admin')->middleware('auth')->group(function (){
 
 //  Dashboard
