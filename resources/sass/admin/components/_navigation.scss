@@ -1,0 +1,22 @@
+.navbar{
+  background-color: #fff;
+  .nav-item{
+    .nav-link{
+      color: $gray !important;
+      //padding-bottom: 1.2em;
+      font-weight: bold;
+      @include respond-to(md){
+       font-weight: normal;
+      }
+    }
+  }
+  .nav-user{
+    border: none;
+    @include respond-to(md){
+      border-left: 1px solid $gray;
+    }
+  }
+  .md-avatar.rounded-circle{
+    width: 1.7em;
+  }
+}

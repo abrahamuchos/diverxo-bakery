@@ -1,0 +1,51 @@
+#modalError{
+  .modal-header{
+    background-color: $error-color;
+  }
+  .modal-title{
+    color: white;
+    font-size: 5em;
+  }
+  .modal-footer{
+    border-top: none;
+  }
+  .btn{
+    background-color: #6F52ED !important;
+  }
+
+}
+
+#modalSuccess{
+  .modal-header{
+    background-color: $success-color;
+  }
+  .modal-title{
+    color: white;
+    font-size: 5em;
+  }
+  .modal-footer{
+    border-top: none;
+  }
+  .btn{
+    background-color: #6F52ED !important;
+  }
+}
+
+#modalDelete{
+  .modal-header{
+    background-color: $warning-color;
+  }
+  .modal-title{
+    color: white;
+    font-size: 2.5em;
+    &:has(> i){
+      font-size: 5em;
+    }
+  }
+  .modal-footer{
+    border-top: none;
+  }
+  .btn{
+    background-color: #6F52ED !important;
+  }
+}

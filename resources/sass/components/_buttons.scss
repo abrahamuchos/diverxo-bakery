@@ -1,0 +1,37 @@
+.btn-outline-primary{
+  color: $white;
+  border-color: #242424;
+  border-radius: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: #242424;
+  &:hover{
+    background-color: $black-secondary;
+    border-color: $black-secondary;
+  }
+}
+
+
+.btn-outline-secondary{
+  color: #F4F4F4;
+  border-color: #F4F4F4;
+  border-radius: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  &:hover{
+    background-color: $white;
+    color: $black-primary;
+  }
+}
+
+.btn-outline-tertiary{
+  color: $black-secondary;
+  border-color: $black-secondary;
+  border-radius: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  &:hover{
+    background-color: $black-secondary;
+    color: $white;
+  }
+}

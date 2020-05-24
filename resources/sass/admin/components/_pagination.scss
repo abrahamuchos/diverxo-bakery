@@ -1,0 +1,7 @@
+.pagination{
+  .page-item.active{
+    .page-link{
+      @extend .primary-color;
+    }
+  }
+}
