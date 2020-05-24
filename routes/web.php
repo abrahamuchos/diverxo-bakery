@@ -20,6 +20,13 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
+// User
+//TODO: Al hacer un update o create que los tabs se muevan y muestren el mensaje (Ver view)
+Route::get('/myAccount', 'UserController@show')->name('user.show')->middleware('auth');
+Route::patch('/myAccount/{user}', 'UserController@update')->name('user.update')->middleware('auth');
+Route::post('/myAccount/paymentMethod/store', 'UserController@paymentMethod')->name('user.paymentMethod.store')->middleware('auth');
+Route::delete('/myAccount/paymentMethod/destroy', 'UserController@paymentMethodDestroy')->name('user.paymentMethod.destroy')->middleware('auth');
+
 //Shop
 Route::get('/shop', 'ProductController@index')->name('product.index');
 Route::get('/shop/{slug}', 'ProductController@show')->name('product.show');

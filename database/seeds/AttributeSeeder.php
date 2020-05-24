@@ -130,6 +130,14 @@ class AttributeSeeder extends Seeder
       'value' => 'Ig'
     ]);
 
-
+//    Payments platforms
+    $parent = Attribute::create([
+      'name' => 'Payments platforms',
+    ]);
+    Attribute::create([
+      'attribute_id' => $parent->id,
+      'name' => 'Stripe',
+      'value' => 'St'
+    ]);
   }
 }
