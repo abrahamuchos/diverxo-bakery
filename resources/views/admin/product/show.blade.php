@@ -27,7 +27,7 @@
       $("#imageDropZone").dropzone({
         url: "{{ route('admin.media.store', $product->id) }}",
         maxFilesize: 2,
-        maxFiles: 1,
+        maxFiles: 10,
         addRemoveLinks: true,
         autoProcessQueue : false,
         acceptedFiles: 'image/*',
