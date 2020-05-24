@@ -15,6 +15,8 @@ class Media extends Model
     'type',
   ];
 
+  protected $table = 'medias';
+
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
