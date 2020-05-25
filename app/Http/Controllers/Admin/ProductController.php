@@ -45,6 +45,7 @@ class ProductController extends Controller
   public function create()
   {
     return view('admin.product.create',[
+      'products' => null,
       'categories'=> $this->_categories,
       'sizeUnits'=> $this->_sizeUnits,
       'weightUnits'=> $this->_weightUnits,
@@ -60,7 +61,7 @@ class ProductController extends Controller
   public function store(ProductRequest $request)
   {
     try{
-      Product::create([
+      $product = Product::create([
         'category_id' =>  $request->category,
         'name' => $request->name,
         'slug' => Miscellaneous::slugify($request->name),
@@ -87,6 +88,8 @@ class ProductController extends Controller
         'error' => $e->getMessage()
       ], 500);
     }
+
+    return response()->json($product);
   }
 
   /**

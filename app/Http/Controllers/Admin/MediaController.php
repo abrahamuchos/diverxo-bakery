@@ -44,8 +44,7 @@ class MediaController extends Controller
   {
     if( is_null($id) || $id == 0) $id = $request->productId;
 
-    if (request()->hasFile('file')) {
-      $image = request()->file('file');
+    foreach ($request->file as $image){
       $name = time().'.'.$image->getClientOriginalExtension();
       $destinationPath = public_path('Uploads/Products/');
       $image->move($destinationPath, $name);
@@ -65,16 +64,11 @@ class MediaController extends Controller
           'errors'  => $e->getMessage(),
         ], 404);
       }
-      return response()->json($save);
-
-    }else{
-      return response()->json([
-        'success' => 'false',
-        'code' => 4001,
-        'errors'  => 'Please upload image (backend)',
-      ], 404);
 
     }
+
+    return response()->json($save);
+
   }
 
   /**

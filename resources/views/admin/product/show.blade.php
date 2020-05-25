@@ -27,10 +27,12 @@
       $("#imageDropZone").dropzone({
         url: "{{ route('admin.media.store', $product->id) }}",
         maxFilesize: 2,
-        maxFiles: 1,
+        maxFiles: 5,
         addRemoveLinks: true,
         autoProcessQueue : false,
         acceptedFiles: 'image/*',
+        parallelUploads:10,
+        uploadMultiple:true,
         thumbnailWidth: 800,
         thumbnailHeight: 800,
         removedfile: function(file) {
@@ -62,7 +64,7 @@
         },
         error: function (file, response) {
           var _ref;
-          throwError('Remember you only upload 1 image less than 2MB');
+          throwError('Remember you only upload images less than 2MB');
           $('.dropzone.dz-started .dz-message').css("display",'block');
           return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
         },

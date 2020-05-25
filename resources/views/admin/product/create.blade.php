@@ -129,9 +129,6 @@
 
         },
         error: function (request, status, error) {
-          console.warn('**Error request create**');
-          console.log('request ==>', request);
-          console.log('error ==>', error);
           if(request.status === 419) {
             throwError('Your session has expired please reload the page and login');
           }else if(request.status === 500){
@@ -209,9 +206,11 @@
       $("#imageDropZone").dropzone({
         url: "{{ route('admin.media.store', 0) }}",
         maxFilesize: 2,
-        maxFiles: 1,
+        maxFiles: 5,
         addRemoveLinks: true,
         autoProcessQueue : false,
+        parallelUploads: 10,
+        uploadMultiple:true,
         acceptedFiles: 'image/*',
         thumbnailWidth: 800,
         thumbnailHeight: 800,
@@ -243,7 +242,7 @@
         init: function () {
           window.thisNewsDropzone = this;
           window.thisNewsDropzone.on("sending", function(file, xhr, formData){
-            formData.append("postId", window.postId);
+            formData.append("productId", window.productId);
           });
         }
 
