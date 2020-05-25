@@ -13,7 +13,7 @@ class CreateMediasTable extends Migration
    */
   public function up()
   {
-    Schema::create('media', function (Blueprint $table) {
+    Schema::create('medias', function (Blueprint $table) {
 //      Key Constraints
       $table->id();
       $table->integer('category_id')->unsigned()->nullable();
