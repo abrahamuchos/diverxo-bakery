@@ -11,6 +11,28 @@
 @endsection
 
 @section('content')
+	{{-- Messages and errors--}}
+	<div class="container">
+		<div class="row mt-3">
+			<div class="col-12">
+				@if (session()->has('successMessage'))
+					<div class="alert alert-success">
+						{{ session()->get('successMessage') }}
+					</div>
+				@endif
+				@if(count($errors) > 0)
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+			</div>
+		</div>
+	</div>
+	{{--/End Messages and errors--}}
 	<section id="ProductDetail" class="container mt-3">
 		<div class="row product-header">
 			<div class="col-12 col-md-6">
@@ -43,7 +65,11 @@
 							<button type="submit" class="btn btn-outline-primary col-12">Add to Cart</button>
 						</form>
 					@endif
-						<a href="#" class="btn btn-outline-tertiary col-5 offset-1">Add to list</a>
+					<form class="col-5" action="{{ route('wishlist.store', $product) }}" method="POST">
+						{{ csrf_field() }}
+						<button type="submit" class="btn btn-outline-tertiary col-12">Add to list</button>
+					</form>
+						{{--<a href="#" class="btn btn-outline-tertiary col-5 offset-1">Add to list</a>--}}
 				</div>
 				{{--/end CTA --}}
 				{{-- Predescription--}}

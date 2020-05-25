@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Traits\Customer;
 use App\User;
 use Illuminate\Database\QueryException;
@@ -53,6 +54,7 @@ class UserController extends Controller
     $user = Auth::user();
     try{
       $cards = $this->getAllCards($user->id);
+      $orders = Order::where('user_id', $user->id)->get();
     }catch (\Exception $e){
 //      TODO: Crear una vista para esta exepccion porque es el comienzo y no voy a poder hacer un back
       return $e->getMessage();
@@ -60,7 +62,8 @@ class UserController extends Controller
 
     return view('user.show',[
       'user' => $user,
-      'cards' => $cards['data']
+      'cards' => $cards['data'],
+      'orders' => $orders
     ]);
   }
 

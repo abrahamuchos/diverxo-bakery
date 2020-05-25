@@ -34,7 +34,7 @@
 	</div>
 	{{--/End Messages and errors--}}
 
-	<section class="container">
+	<section class="container my-5">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-1 mt-5">
 				<ul class="nav nav-tabs" id="tab" role="tablist">
@@ -332,8 +332,41 @@
 					{{--/End My Payments--}}
 
 
+					{{-- My Orders --}}
+					<div class="tab-pane fade" id="myOrders" role="tabpanel" aria-labelledby="contact-tab">
+						@if($orders)
+							<table class="table">
+								<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Date</th>
+									<th scope="col">Status</th>
+									<th scope="col">Total</th>
+									<th scope="col"></th>
+								</tr>
+								</thead>
+								<tbody>
+								@php($i = 0)
+								@foreach($orders as $order)
+									@php( $i++)
+									<tr>
+										<th scope="row">{{ $i }}</th>
+										<td>{{ $order->created_at }}</td>
+										<td>{{ $order->status }}</td>
+										<td>{{ env('STRIPE_CURRENCY_SYMBOL').$order->total }}</td>
+										<td>
+											<a href="{{ route('order.show', $order->id) }}" class="btn btn-outline-tertiary col-6"> View </a>
+										</td>
+									</tr>
+								@endforeach
+								</tbody>
+							</table>
+						@else
+							<h3 class="text-muted mt-5">You don't have an order yet</h3>
+						@endif
 
-					<div class="tab-pane fade" id="myOrders" role="tabpanel" aria-labelledby="contact-tab">...</div>
+					</div>
+					{{--/End My Orders --}}
 
 					{{-- Password --}}
 					<div class="tab-pane fade" id="myPassword" role="tabpanel" aria-labelledby="contact-tab">

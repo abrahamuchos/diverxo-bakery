@@ -37,10 +37,14 @@ Route::post('/cart/{product}', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
+// Wish List
+Route::get('/wish-list', 'WishListController@index')->name('wishlist.index');
+Route::post('/wish-list/{product}', 'WishListController@store')->name('wishlist.store');
+Route::post('/wish-list/switchToCart/{id}', 'WishListController@switchToCart')->name('wishlist.switchToCart');
+
 //Checkout
 Route::get('checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
 Route::post('checkout/confirm', 'CheckoutController@confirm')->name('checkout.confirm')->middleware('auth');
-//Route::get('checkout/confirm', 'CheckoutController@confirm')->name('checkout.confirm')->middleware('auth');
 
 // Order
 Route::get('order/{id}', 'OrderController@show')->name('order.show')->middleware('auth');

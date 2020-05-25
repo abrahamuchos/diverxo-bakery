@@ -34,7 +34,7 @@ class OrderController extends Controller
         'user_id' => $user->id,
         'charge_id' => $charge['id'],
         'processed' => true,
-        'total' => $charge['amount'],
+        'total' => Cart::total(),
         'risk_level' => $charge['outcome']['risk_level'],
         'status' => $charge['status'],
         'receipt_url' => $charge['receipt_url'],
