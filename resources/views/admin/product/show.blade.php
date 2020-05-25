@@ -64,7 +64,7 @@
         },
         error: function (file, response) {
           var _ref;
-          throwError('Remember you only upload images less than 2MB');
+          throwError('Remember you only upload 1 image less than 2MB');
           $('.dropzone.dz-started .dz-message').css("display",'block');
           return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
         },
