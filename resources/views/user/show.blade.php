@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-{{--@dd($cards)--}}
+
 	{{-- Messages and errors--}}
 	<div class="container">
 		<div class="row mt-3">
@@ -330,9 +330,6 @@
 					  {{--/End Add new card --}}
 					</div>
 					{{--/End My Payments--}}
-
-
-
 
 
 

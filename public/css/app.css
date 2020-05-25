@@ -10157,6 +10157,13 @@ footer .footer-wayu {
   background-color: #4D4D4D;
   border-color: #4D4D4D;
 }
+.btn-outline-primary:hover:disabled {
+  cursor: no-drop !important;
+  background-color: #fff;
+}
+.btn-outline-primary:disabled {
+  color: #6c757d !important;
+}
 
 .btn-outline-secondary {
   color: #F4F4F4;

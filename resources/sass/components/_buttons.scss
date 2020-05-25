@@ -8,6 +8,13 @@
   &:hover{
     background-color: $black-secondary;
     border-color: $black-secondary;
+    &:disabled{
+      cursor: no-drop !important;
+      background-color: $white;
+    }
+  }
+  &:disabled{
+    color: #6c757d !important;
   }
 }
 
@@ -35,3 +42,4 @@
     color: $white;
   }
 }
+

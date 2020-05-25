@@ -37,9 +37,13 @@ Route::post('/cart/{product}', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
-Route::get('/cartDestroy/{id}', function($id){
-  Cart::remove($id);
-});
+//Checkout
+Route::get('checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::post('checkout/confirm', 'CheckoutController@confirm')->name('checkout.confirm')->middleware('auth');
+//Route::get('checkout/confirm', 'CheckoutController@confirm')->name('checkout.confirm')->middleware('auth');
+
+// Order
+Route::get('order/{id}', 'OrderController@show')->name('order.show')->middleware('auth');
 
 //Emails
 Route::prefix('emails')->group(function (){

@@ -72,6 +72,21 @@ trait Customer{
 
   }
 
+  public function getCard($id, $idUser){
+    try{
+      $customer = $this->_checkCustomer($idUser);
+    }catch (\Exception $e){
+      throw new \Exception($e->getMessage());
+    }
+    try{
+      $card = Stripe::cards()->find($customer->customer_id, $id);
+    }catch (Cartalyst\Stripe\Exception\InvalidRequestException $e){
+      throw new \Exception("Stripe error get card. Please try again. Code: ". $e->getCode() );
+    }
+
+    return $card;
+  }
+
 
   /**
    * Get all cards by customer id
