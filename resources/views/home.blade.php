@@ -120,8 +120,6 @@
 									</div>
 									{{--/End Cta--}}
 								</div>
-
-
 							</div>
 						</div>
 					@empty
@@ -293,6 +291,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYH8-bg4dKYolktWGdZDHIYPEpdZA7i7Y&callback=initMap" async defer></script>
 	<script>
     var map;
+    window.scrollTo(0, 0);
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
