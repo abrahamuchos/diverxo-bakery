@@ -77,6 +77,10 @@ Route::prefix('admin')->middleware('auth')->group(function (){
   Route::post('product/edit/{id}', 'Admin\ProductController@update')->name('admin.product.update');
   Route::delete('product/delete/{id}', 'Admin\ProductController@destroy')->name('admin.product.destroy');
 
+//  Orders
+  Route::get('orders', 'Admin\OrderController@index')->name('admin.order.index');
+  Route::get('orders/{id}', 'Admin\OrderController@show')->name('admin.order.show');
+
 //  Media (Images and more)
   Route::post('media/store/{id?}', 'Admin\MediaController@store')->name('admin.media.store');
   Route::delete('media/destroy/{id?}', 'Admin\MediaController@destroy')->name('admin.media.destroy');
