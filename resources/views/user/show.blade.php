@@ -36,7 +36,7 @@
 
 	<section class="container my-5">
 		<div class="row">
-			<div class="col-12 col-md-10 offset-1 mt-5">
+			<div class="col-12 col-md-10 offset-md-1 mt-5">
 				<ul class="nav nav-tabs" id="tab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#myProfile" role="tab" aria-controls="myProfile" aria-selected="true">My profile</a>
@@ -352,10 +352,10 @@
 									<tr>
 										<th scope="row">{{ $i }}</th>
 										<td>{{ $order->created_at }}</td>
-										<td>{{ $order->status }}</td>
+										<td class="text-capitalize">{{ $order->status }}</td>
 										<td>{{ env('STRIPE_CURRENCY_SYMBOL').$order->total }}</td>
 										<td>
-											<a href="{{ route('order.show', $order->id) }}" class="btn btn-outline-tertiary col-6"> View </a>
+											<a href="{{ route('order.show', $order->id) }}" class="col-6"> View </a>
 										</td>
 									</tr>
 								@endforeach

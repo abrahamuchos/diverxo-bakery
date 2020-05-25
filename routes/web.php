@@ -30,6 +30,7 @@ Route::delete('/myAccount/paymentMethod/destroy', 'UserController@paymentMethodD
 //Shop
 Route::get('/shop', 'ProductController@index')->name('product.index');
 Route::get('/shop/{slug}', 'ProductController@show')->name('product.show');
+Route::get('/shop/category/{slug}', 'ProductController@showCategory')->name('product.show');
 
 //Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');

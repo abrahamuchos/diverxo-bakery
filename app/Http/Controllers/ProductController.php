@@ -128,6 +128,10 @@ class ProductController extends Controller
     //
   }
 
+  public function showCategory($slug){
+
+  }
+
 
   private function _searchByPrice($products, $orderBy)
   {

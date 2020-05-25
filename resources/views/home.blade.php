@@ -23,7 +23,7 @@
 								<div class="item">
 									<div class="slide-item owl-lazy" data-src="{{ asset($category->medias->first()->src) }}">
 										<p class="slide-caption">{{ $category->name }}</p>
-										<a class="slide-cta btn btn-outline-secondary" href="#">View more</a>
+										<a class="slide-cta btn btn-outline-secondary" href="{{ route('product.index', ['findByCategory' => $category->slug]) }}">View more</a>
 									</div>
 								</div>
 							@empty
