@@ -53,9 +53,9 @@
 						<li class="nav-item pr-md-3">
 							<a class="nav-link text-center text-md-left" href="{{ route('admin.order.index') }}">Orders</a>
 						</li>
-						<li class="nav-item pr-md-3">
-							<a class="nav-link text-center text-md-left" href="{{--{{ route('admin.user.index') }}--}}">Users</a>
-						</li>
+						{{--<li class="nav-item pr-md-3">--}}
+							{{--<a class="nav-link text-center text-md-left" href="--}}{{--{{ route('admin.user.index') }}--}}{{--">Users</a>--}}
+						{{--</li>--}}
 
 						<li class="nav-item dropdown nav-user">
 							<a id="navbarDropdown" class="nav-link text-center text-md-left dropdown-toggle" href="/#" role="button" data-toggle="dropdown"
