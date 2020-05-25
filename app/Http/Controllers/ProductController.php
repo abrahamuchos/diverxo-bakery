@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Media;
 use App\Product;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -78,10 +79,15 @@ class ProductController extends Controller
    */
   public function show($slug)
   {
+    $img = [];
     $mightAlsoLikes = Product::mightAlsoLike()->get();
 
     try{
       $product = Product::where('slug',  $slug)->with('sizeUnit','volumeUnit','weightUnit', 'medias', 'category')->first();
+      $images = Media::where('product_id', $product->id)->get(['src'])->toArray();
+      foreach ($images as $image){
+        array_push($img, $image['src']);
+      }
 
     }catch (ModelNotFoundException $e){
       return view('product.404');
@@ -89,6 +95,7 @@ class ProductController extends Controller
 
     return view('product.show',[
       'product' => $product,
+      'images' => $img,
       'mightAlsoLikes' => $mightAlsoLikes
     ]);
 

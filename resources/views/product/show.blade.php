@@ -33,6 +33,9 @@
 		</div>
 	</div>
 	{{--/End Messages and errors--}}
+
+	{{--@dd($product->medias->first()->src)--}}
+
 	<section id="ProductDetail" class="container mt-3">
 		<div class="row product-header">
 			<div class="col-12 col-md-6">
@@ -56,9 +59,21 @@
 					@elseif($product->volume)
 						<p class="title-3">Volume:{{ ' '.$product->volume.''.$product->volumeUnit->value }}</p>
 					@endif
+
 				</div>
 				{{-- CTA --}}
-				<div class="col-12 d-flex mt-5">
+				<div class="col-12 mt-5">
+					@if($product->old_price)
+						<p class="title-3">
+							Price:
+							<span class="text-line-through text-muted px-3">{{ '$'.$product->old_price }}</span>
+							{{ '$'.$product->price }}
+						</p>
+					@else
+						<p class="title-3">{{ 'Price: $'.$product->price }}</p>
+					@endif
+				</div>
+				<div class="col-12 d-flex ">
 					@if ($product->stock > 0)
 						<form class="col-5" action="{{ route('cart.store', $product) }}" method="POST">
 							{{ csrf_field() }}
@@ -85,7 +100,7 @@
 		{{-- Product Description --}}
 		@if($product->description)
 			<div class="row mt-5">
-				<div class="col-12 col-lg-10 offset-lg-1">
+				<div class="col-12 col-lg-10 offset-lg-1 product-description">
 					{!! $product->description !!}
 				</div>
 			</div>
@@ -98,7 +113,7 @@
 			<div class="owl-carousel">
 				@forelse($mightAlsoLikes as $product)
 					<div class="card ml-3">
-						<img class="card-img-top" src="{{ asset('Uploads/Products/pan.jpg') }}" alt="Card image cap">
+						<img class="card-img-top" src="{{ asset( ($product->medias->first()->src ?? '/img/not-found.jpg') ) }}" alt="Card image cap">
 						<div class="card-body">
 							<div class="row">
 								{{-- Product name and price --}}
@@ -133,7 +148,7 @@
 
 								{{-- Cta--}}
 								<div class="col-6">
-									<a href="#" class="btn btn-outline-tertiary col-12">View more</a>
+									<a href="{{ route('product.show', $product->id) }}" class="btn btn-outline-tertiary col-12">View more</a>
 								</div>
 								<div class="col-6">
 									@if ($product->stock > 0)
@@ -164,12 +179,14 @@
 	<script type="text/javascript" src="{{ asset('/js/vendor/owl.carousel.min.js') }}"></script>
 	<script>
 		$(function(){
-      let urls = [
-        'https://i.picsum.photos/id/273/1000/1000.jpg',
-        'https://i.picsum.photos/id/1052/500/500.jpg',
-        'https://i.picsum.photos/id/558/200/300.jpg',
-        'https://i.picsum.photos/id/522/500/700.jpg'
-      ];
+		  let urls = [];
+		  let images = {!! json_encode($images, JSON_HEX_TAG) !!}
+
+      $.each(images,function (key, value) {
+				urls.push(window.location.origin+'/'+value)
+      });
+
+
       $('#myGallery').zoomy(urls,{
         thumbLeft:false,
 			});

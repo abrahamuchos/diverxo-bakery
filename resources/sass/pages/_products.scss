@@ -87,7 +87,18 @@
 }
 
 
-
+.product-description{
+  img, iframe{
+    width: 100% !important;
+    height: auto !important;
+  }
+  iframe{
+    @include respond-to(md){
+      max-width: 560px !important;
+      height: 314px !important;
+    }
+  }
+}
 
 
 
