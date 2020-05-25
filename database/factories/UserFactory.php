@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
   $gender = (random_int(0,1) == 1) ? 'male' : 'female';
   return [
     'email' => $faker->unique()->safeEmail,
-    'is_admin' => $faker->boolean(40),
+    'is_admin' => false,
     'name' => $faker->firstName($gender),
     'gender' => ($gender == 'male') ? true : false,
     'last_name' => $faker->lastName,
@@ -30,12 +30,12 @@ $factory->define(User::class, function (Faker $faker) {
     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
     'remember_token' => Str::random(10),
     'document'=> (random_int(0,1) == 1) ? random_int(1303001,25258905) : null,
-    'country' => $country = (random_int(0,1) == 1) ? $faker->country : null,
-    'state' => ($country) ? $faker->state : null,
-    'city' => ($country) ? $faker->city : null,
-    'address_line1' => ($country) ? $faker->streetName : null,
-    'address_line2' => ($country) ? $faker->streetAddress : null,
-    'phone_number' => ($country) ? $faker->e164PhoneNumber :null,
+    'country' => $faker->country,
+    'state' =>  $faker->state,
+    'city' => $faker->city,
+    'address_line1' => $faker->streetName,
+    'address_line2' => $faker->streetAddress,
+    'phone_number' => $faker->e164PhoneNumber,
     'is_subscriber' => $faker->boolean(30)
   ];
 });

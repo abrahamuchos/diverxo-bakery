@@ -141,7 +141,7 @@
 									<select id="sizeUnit" name="sizeUnit" class="mdb-select md-form">
 										<option value="" disabled selected>Unit</option>
 										@foreach( $sizeUnits as $sizeUnit)
-											<option value="{{ $sizeUnit->id }}" {{ $product->size_unit_id == $sizeUnit->id ? 'selected' : ''}}>
+											<option value="{{ $sizeUnit->id }}" {{ ($product->size_unit_id ?? '') == $sizeUnit->id ? 'selected' : ''}}>
 												{{ $sizeUnit->value }}
 											</option>
 										@endforeach
@@ -162,7 +162,7 @@
 									<select id="weightUnit" name="weightUnit" class="mdb-select md-form">
 										<option value="" disabled selected>Unit</option>
 										@foreach( $weightUnits as $weightUnit)
-											<option value="{{ $weightUnit->id }}" {{ $weightUnit->id == $product->weight_unit_id ? 'selected' : '' }}>
+											<option value="{{ $weightUnit->id }}" {{ $weightUnit->id == ($product->weight_unit_id ?? '') ? 'selected' : '' }}>
 												{{ $weightUnit->value }}
 											</option>
 										@endforeach
@@ -183,7 +183,7 @@
 									<select id="volumeUnit" name="volumeUnit" class="mdb-select md-form">
 										<option value="" disabled selected>Unit</option>
 										@foreach( $volumeUnits as $volumeUnit)
-											<option value="{{ $volumeUnit->id }}"{{ $volumeUnit->id == $product->volume_unit_id ? 'selected' : '' }}>
+											<option value="{{ $volumeUnit->id }}"{{ $volumeUnit->id == ($product->volume_unit_id ?? '') ? 'selected' : '' }}>
 												{{ $volumeUnit->value }}
 											</option>
 										@endforeach
@@ -205,7 +205,7 @@
 
 		{{-- TinyMCE --}}
 		<div class="col-12 col-lg-10">
-			<textarea name="article" id="productDescription" data-value=""></textarea>
+			<textarea name="article" id="productDescription" data-value="{{ $product->description }}"></textarea>
 		</div>
 		{{--/End TinyMCE --}}
 

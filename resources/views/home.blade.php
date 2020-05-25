@@ -21,9 +21,9 @@
 						<div class="owl-carousel">
 							@forelse($categories as $category)
 								<div class="item">
-									<div class="slide-item owl-lazy" data-src="{{ asset($category->medias->first()->src) }}">
+									<div class="slide-item owl-lazy" data-src="{{ asset( ($category->medias->first()->src ?? '/img/not-found.jpg')) }}">
 										<p class="slide-caption">{{ $category->name }}</p>
-										<a class="slide-cta btn btn-outline-secondary" href="#">View more</a>
+										<a class="slide-cta btn btn-outline-secondary" href="{{ route('product.index', ['findByCategory' => $category->slug]) }}">View more</a>
 									</div>
 								</div>
 							@empty
@@ -71,7 +71,7 @@
 				<div class="owl-carousel">
 					@forelse($products as $product)
 						<div class="card ml-3">
-							<img class="card-img-top" src="{{ asset('Uploads/Products/pan.jpg') }}" alt="Card image cap">
+							<img class="card-img-top" src="{{ asset( ($product->medias->first()->src ?? '/img/not-found.jpg') ) }}" alt="Card image cap">
 							<div class="card-body">
 								<div class="row">
 									{{-- Product name and price --}}
@@ -109,12 +109,17 @@
 										<a href="#" class="btn btn-outline-tertiary col-12">View more</a>
 									</div>
 									<div class="col-6">
-										<a href="#" class="btn btn-outline-primary col-12">Add cart</a>
+										@if ($product->stock > 0)
+											<form class="col-12 p-0" action="{{ route('cart.store', $product) }}" method="POST">
+												{{ csrf_field() }}
+												<button type="submit" class="btn btn-outline-primary col-12">Add to Cart</button>
+											</form>
+										@else
+											<a href="#" class="btn btn-outline-primary col-12 disabled">Add cart</a>
+										@endif
 									</div>
 									{{--/End Cta--}}
 								</div>
-
-
 							</div>
 						</div>
 					@empty
@@ -286,6 +291,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYH8-bg4dKYolktWGdZDHIYPEpdZA7i7Y&callback=initMap" async defer></script>
 	<script>
     var map;
+    window.scrollTo(0, 0);
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},

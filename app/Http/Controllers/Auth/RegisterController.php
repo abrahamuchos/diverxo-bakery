@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Traits\Customer;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class RegisterController extends Controller
   |
   */
 
-  use RegistersUsers;
+  use RegistersUsers, Customer;
 
   /**
    * Where to redirect users after registration.
@@ -66,14 +67,13 @@ class RegisterController extends Controller
   }
 
   /**
-   * Create a new user instance after a valid registration.
-   *
-   * @param  array $data
-   * @return \App\User
+   * @param array $data
+   * @return mixed
+   * @throws \Exception
    */
   protected function create(array $data)
   {
-    return User::create([
+     $user = User::create([
       'name' => $data['name'],
       'last_name' => $data['lastName'],
       'email' => $data['email'],
@@ -88,5 +88,9 @@ class RegisterController extends Controller
       'addressLine2' => $data['addressLine2'],
       'phoneNumber' => $data['phoneNumber'],
     ]);
+
+    $this->createCustomer($user);
+
+    return $user;
   }
 }

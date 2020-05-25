@@ -24,6 +24,9 @@ class CreateOrdersTable extends Migration
       $table->double('total');
       $table->string('risk_level',15);
       $table->string('status',15);
+      $table->string('receipt_url', 255);
+      $table->string('payment_method', 255)->comment('Id card was used');
+      $table->string('balance_transaction', 255)->nullable()->comment('Id transaction');
       $table->timestamps();
 
 //      Foreing Key

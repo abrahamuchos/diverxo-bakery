@@ -55,24 +55,31 @@ class Product extends Model
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function sizeUnit(){
+  public function sizeUnit()
+  {
   return $this->belongsTo(Attribute::class,'size_unit_id');
   }
 
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function volumeUnit(){
+  public function volumeUnit()
+  {
     return $this->belongsTo(Attribute::class,'volume_unit_id');
   }
 
   /**
    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  public function weightUnit(){
+  public function weightUnit()
+  {
     return $this->belongsTo(Attribute::class,'weight_unit_id');
   }
 
+  public function scopeMightAlsoLike($query)
+  {
+    return $query->with('sizeUnit','volumeUnit','weightUnit', 'medias', 'category')->inRandomOrder()->take(6);
+  }
 
 
 

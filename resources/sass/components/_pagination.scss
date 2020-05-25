@@ -1,0 +1,38 @@
+.pagination{
+  justify-content: center;
+  .page-link{
+    border: none;
+    border-right: 2px $black-secondary solid;
+    border-radius: 0;
+    color: $black-secondary;
+  }
+  .page-item{
+    &.active{
+      .page-link{
+        color: $black-primary;
+        font-weight: bold;
+        background-color: transparent;
+        border-color: transparent;
+        border-right: 2px $black-secondary solid;
+      }
+    }
+    &:last-child, &:first-child{
+      .page-link{
+        border-radius: 0;
+        border: none;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+

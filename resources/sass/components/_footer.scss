@@ -22,6 +22,9 @@ footer{
   }
 
   .footer-wayu{
-    border-top: 1px solid $white
+    border-top: 1px solid $white;
+    a{
+      color: $white !important;
+    }
   }
 }

@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
       AttributeSeeder::class,
       CategorySeeder::class,
       ProductSeeder::class,
-      MediaSeed::class
+      CustomerSeeder::class,
+      MediaSeeder::class,
+      SqlSeeder::class
     ]);
 
   }

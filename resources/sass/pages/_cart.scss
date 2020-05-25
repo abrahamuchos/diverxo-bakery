@@ -1,0 +1,27 @@
+.cart-header{
+  background-color: $white-secondary;
+  margin-bottom: 5%;
+
+}
+
+.cart-item{
+  .cart-item-line{
+    margin-top: 2rem;
+    border-bottom: 1px solid $black-secondary;
+  }
+}
+
+.cart-summary{
+  background-color: $black-primary;
+  color: $white !important;
+  .btn-outline-secondary{
+    background-color: white;
+    color: $black-primary;
+  }
+  .cart-summary-total{
+    margin-top: 30%;
+  }
+}
+
+
+

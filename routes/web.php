@@ -15,15 +15,47 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
+/* Web */
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
+// User
+//TODO: Al hacer un update o create que los tabs se muevan y muestren el mensaje (Ver view)
+Route::get('/myAccount', 'UserController@show')->name('user.show')->middleware('auth');
+Route::patch('/myAccount/{user}', 'UserController@update')->name('user.update')->middleware('auth');
+Route::post('/myAccount/paymentMethod/store', 'UserController@paymentMethod')->name('user.paymentMethod.store')->middleware('auth');
+Route::delete('/myAccount/paymentMethod/destroy', 'UserController@paymentMethodDestroy')->name('user.paymentMethod.destroy')->middleware('auth');
+
+//Shop
+Route::get('/shop', 'ProductController@index')->name('product.index');
+Route::get('/shop/{slug}', 'ProductController@show')->name('product.show');
+Route::get('/shop/category/{slug}', 'ProductController@showCategory')->name('category.show');
+
+//Cart
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart/{product}', 'CartController@store')->name('cart.store');
+Route::patch('/cart/{id}', 'CartController@update')->name('cart.update');
+Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+
+// Wish List
+Route::get('/wish-list', 'WishListController@index')->name('wishlist.index');
+Route::post('/wish-list/{product}', 'WishListController@store')->name('wishlist.store');
+Route::post('/wish-list/switchToCart/{id}', 'WishListController@switchToCart')->name('wishlist.switchToCart');
+
+//Checkout
+Route::get('checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::post('checkout/confirm', 'CheckoutController@confirm')->name('checkout.confirm')->middleware('auth');
+
+// Order
+Route::get('order/{id}', 'OrderController@show')->name('order.show')->middleware('auth');
 
 //Emails
 Route::prefix('emails')->group(function (){
   Route::post('send/contactUs', 'EmailController@contactUs')->name('email.contact-us');
 });
 
-// Admin
+/* Admin */
 Route::prefix('admin')->middleware('auth')->group(function (){
 
 //  Dashboard
@@ -44,6 +76,10 @@ Route::prefix('admin')->middleware('auth')->group(function (){
   Route::get('product/{id}', 'Admin\ProductController@show')->name('admin.product.show');
   Route::post('product/edit/{id}', 'Admin\ProductController@update')->name('admin.product.update');
   Route::delete('product/delete/{id}', 'Admin\ProductController@destroy')->name('admin.product.destroy');
+
+//  Orders
+  Route::get('orders', 'Admin\OrderController@index')->name('admin.order.index');
+  Route::get('orders/{id}', 'Admin\OrderController@show')->name('admin.order.show');
 
 //  Media (Images and more)
   Route::post('media/store/{id?}', 'Admin\MediaController@store')->name('admin.media.store');

@@ -13,6 +13,10 @@ class Order extends Model
     'total',
     'risk_level',
     'status',
+    'receipt_url',
+    'status',
+    'payment_method',
+    'balance_transaction'
   ];
 
   /**

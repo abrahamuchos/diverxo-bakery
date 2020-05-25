@@ -38,16 +38,16 @@
 				<!-- Right Side Of Navbar -->
 				<ul class="navbar-nav ml-auto d-lg-flex justify-content-around ">
 
-					<li class="nav-item active text-center">
+					<li class="nav-item text-center {{ Request::is('home') ? 'active' : '' }}">
 						<a class="nav-link" href="{{ route('home') }}">Home</a>
 					</li>
 
 					<li class="nav-item text-center">
-						<a class="nav-link" href="#">Category</a>
+						<a class="nav-link" href="{{ route('home').'#category' }}">Category</a>
 					</li>
 
-					<li class="nav-item text-center">
-						<a class="nav-link" href="#">Shop</a>
+					<li class="nav-item text-center {{ Request::is('shop') ? 'active' : '' }}">
+						<a class="nav-link" href="{{ route('product.index') }}">Shop</a>
 					</li>
 
 					<!-- Authentication Links -->
@@ -68,6 +68,9 @@
 							</a>
 
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ route('user.show') }}">My Account</a>
+								<a class="dropdown-item" href="{{ route('wishlist.index') }}">Wish list</a>
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="{{ route('logout') }}"
 									 onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -82,8 +85,12 @@
 					@endguest
 
 					<li class="nav-item text-center">
-						<a class="nav-link p-0" href="#">
-							<img class="nav-cart" src="{{asset('img/svg/carrito.svg') }}" alt="Carrito">
+						<a class="nav-link p-0" href="{{ route('cart.index') }}">
+							@if (Cart::count() > 0)
+								<img class="nav-cart" src="{{asset('img/svg/Carrito-notificacion.svg') }}" alt="Carrito">
+							@else
+								<img class="nav-cart" src="{{asset('img/svg/carrito.svg') }}" alt="Carrito">
+							@endif
 						</a>
 					</li>
 				</ul>
@@ -91,9 +98,11 @@
 		</div>
 	</nav>
 
-	<main class="">
-		@yield('content')
-	</main>
+	<div id="content-wrap">
+		<main class="">
+			@yield('content')
+		</main>
+	</div>
 
 	<footer>
 		<div class="container">
@@ -116,7 +125,7 @@
 				</div>
 
 				<div class="footer-wayu col-10 offset-1 mt-4 text-center">
-					<p class="mt-2">Powered by <strong>WAYU INC</strong></p>
+					<p class="mt-2"><a href="http://www.wayuinc.com/">Powered by <strong>WAYU INC</strong></a></p>
 				</div>
 
 			</div>

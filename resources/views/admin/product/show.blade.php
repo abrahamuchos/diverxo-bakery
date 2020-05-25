@@ -27,10 +27,12 @@
       $("#imageDropZone").dropzone({
         url: "{{ route('admin.media.store', $product->id) }}",
         maxFilesize: 2,
-        maxFiles: 10,
+        maxFiles: 5,
         addRemoveLinks: true,
         autoProcessQueue : false,
         acceptedFiles: 'image/*',
+        parallelUploads:10,
+        uploadMultiple:true,
         thumbnailWidth: 800,
         thumbnailHeight: 800,
         removedfile: function(file) {
