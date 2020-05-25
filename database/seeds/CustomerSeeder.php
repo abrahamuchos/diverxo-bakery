@@ -12,6 +12,8 @@ class CustomerSeeder extends Seeder
    */
   public function run()
   {
+    Customer::truncate();
+
     Customer::create([
       'user_id' => 4,
       'type_id' => 25,

@@ -12,7 +12,7 @@ class MediaSeeder extends Seeder
    */
   public function run()
   {
-    //    Media::truncate();
+    Media::truncate();
 
 //    Categories
     Media::create([
@@ -100,6 +100,5 @@ class MediaSeeder extends Seeder
       'type' => 'image'
     ]);
 
-//    Products
   }
 }

@@ -60,7 +60,7 @@
 					@forelse($products as $product)
 						<div class="col-12 col-md-6 col-lg-4 mt-4">
 							<div class="card ml-3">
-								<img class="card-img-top" src="{{ asset('Uploads/Products/pan.jpg') }}" alt="Card image cap">
+								<img class="card-img-top" src="{{ asset( ($product->medias->first()->src ?? '/img/not-found.jpg') ) }}" alt="Card image cap">
 								<div class="card-body">
 									<div class="row">
 										{{-- Product name and price --}}

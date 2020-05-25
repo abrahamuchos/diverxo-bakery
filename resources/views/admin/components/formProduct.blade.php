@@ -205,7 +205,7 @@
 
 		{{-- TinyMCE --}}
 		<div class="col-12 col-lg-10">
-			<textarea name="article" id="productDescription" data-value=""></textarea>
+			<textarea name="article" id="productDescription" data-value="{{ $product->description }}"></textarea>
 		</div>
 		{{--/End TinyMCE --}}
 

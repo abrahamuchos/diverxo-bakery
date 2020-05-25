@@ -21,7 +21,7 @@
 						<div class="owl-carousel">
 							@forelse($categories as $category)
 								<div class="item">
-									<div class="slide-item owl-lazy" data-src="{{ asset($category->medias->first()->src) }}">
+									<div class="slide-item owl-lazy" data-src="{{ asset( ($category->medias->first()->src ?? '/img/not-found.jpg')) }}">
 										<p class="slide-caption">{{ $category->name }}</p>
 										<a class="slide-cta btn btn-outline-secondary" href="{{ route('product.index', ['findByCategory' => $category->slug]) }}">View more</a>
 									</div>
@@ -71,7 +71,7 @@
 				<div class="owl-carousel">
 					@forelse($products as $product)
 						<div class="card ml-3">
-							<img class="card-img-top" src="{{ asset('Uploads/Products/pan.jpg') }}" alt="Card image cap">
+							<img class="card-img-top" src="{{ asset( ($product->medias->first()->src ?? '/img/not-found.jpg') ) }}" alt="Card image cap">
 							<div class="card-body">
 								<div class="row">
 									{{-- Product name and price --}}
