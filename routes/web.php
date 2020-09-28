@@ -61,6 +61,14 @@ Route::prefix('admin')->middleware('auth')->group(function (){
 //  Dashboard
   Route::get('dashboard', 'Admin\DashboardController@index')->name('dashboard');
 
+//  Users
+  Route::get('users', 'Admin\UserController@index')->name('admin.user.index');
+  Route::get('user/create', 'Admin\UserController@create')->name('admin.user.create');
+  Route::get('user/{id}', 'Admin\UserController@show')->name('admin.user.show');
+  Route::patch('user/edit/{id}', 'Admin\UserController@update')->name('admin.user.update');
+  Route::get('user/delete/{id}', 'Admin\UserController@destroy')->name('admin.user.destroy');
+
+
 //  Categories
   Route::get('categories', 'Admin\CategoryController@index')->name('admin.category.index');
   Route::get('category/create', 'Admin\CategoryController@create')->name('admin.category.create');
