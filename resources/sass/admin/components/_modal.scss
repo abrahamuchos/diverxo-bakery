@@ -34,12 +34,8 @@
 #modalDelete{
   .modal-header{
     background-color: $warning-color;
-  }
-  .modal-title{
-    color: white;
-    font-size: 2.5em;
-    &:has(> i){
-      font-size: 5em;
+    .modal-title{
+      color: white;
     }
   }
   .modal-footer{

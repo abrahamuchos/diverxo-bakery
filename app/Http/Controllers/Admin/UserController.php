@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use App\Traits\Customer;
 use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -29,24 +31,51 @@ class UserController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
+   * Show the form for creating a new user.
    *
    * @return \Illuminate\Http\Response
    */
   public function create()
   {
-    //
+    return view('admin.user.create');
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request $request
-   * @return \Illuminate\Http\Response
+   * Store a new user
+   * @param UserCreateRequest $request
+   * @return \Illuminate\Http\JsonResponse
    */
-  public function store(Request $request)
+  public function store(UserCreateRequest $request)
   {
-    //
+    try{
+      $user = User::create([
+        'email' => $request->email,
+        'is_admin' => $request->isAdmin ?? false,
+        'name' => $request->name,
+        'lastName' => $request->lastName,
+        'password' => $request->password,
+        'gender' => $request->gender,
+        'document' => $request->document,
+        'country' => $request->country,
+        'state' => $request->state,
+        'city' => $request->city,
+        'addressLine1' => $request->addressLine1,
+        'addressLine2' => $request->addressLine2,
+        'phoneNumber' => $request->phoneNumber,
+        'isSubscriber' => $request->isSubscriber,
+      ]);
+    }catch (QueryException $e){
+      return response()->json([
+        'success' => false,
+        'code' => 2001,
+        'error' => $e->getMessage()
+      ], 500);
+    }
+
+    return response()->json([
+      'success' => true,
+      'userId' => $user->id
+    ], 200);
   }
 
   /**
@@ -105,7 +134,7 @@ class UserController extends Controller
       if($request->password){
         $user->update([
           'email' => $request->email ?? $user->email,
-          'is_admin' => $request->isAdmin ?? $user->is_admin,
+          'is_admin' =>  $request->isAdmin ?? false,
           'gender' => $request->gender,
           'name' => $request->name,
           'last_name' => $request->lastName,
@@ -123,7 +152,7 @@ class UserController extends Controller
       }else{
         $user->update([
           'email' => $request->email ?? $user->email,
-          'is_admin' => $request->isAdmin ?? $user->is_admin,
+          'is_admin' => $request->isAdmin ?? false,
           'gender' => $request->gender,
           'name' => $request->name,
           'last_name' => $request->lastName,
@@ -168,6 +197,22 @@ class UserController extends Controller
    */
   public function destroy($id)
   {
-    //
+    try{
+      $user = User::findOrFail($id);
+      $user->delete();
+    }catch (ModelNotFoundException $e){
+      return back()->withErrors([
+        'code' => 1001,
+        'message' => 'User nor found'
+      ]);
+    }catch (\Exception $e){
+      return back()->withErrors([
+        'code' => $e->getCode(),
+        'message' => 'Error'.$e->getMessage()
+      ]);
+    }
+
+    return redirect()->route('admin.user.index')->with('status', 'User was deleted');
+
   }
 }

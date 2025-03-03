@@ -104,6 +104,7 @@
 		{{--/End Section: Orders by user --}}
 
 	</div>
+
 @endsection
 
 @section('scripts')
@@ -136,6 +137,22 @@
 
     $(document).on('click', '#success', function(){
       updateUser();
+    });
+
+    const deleteMeInput = $('#deleteMe');
+    const deleteMeBtn = $('#deleteMeBtn');
+    $('#modalDelete').on('show.bs.modal', function(){
+      deleteMeInput.attr('placeholder', '');
+      deleteMeInput.val('');
+      deleteMeBtn.attr("disabled", true);
+    });
+
+    deleteMeInput.keyup(function(e){
+      if( deleteMeInput.val() == 'delete me'){
+        deleteMeBtn.attr("disabled", false);
+      }else{
+        deleteMeBtn.attr("disabled", true);
+      }
     });
 
     function updateUser() {
@@ -183,21 +200,6 @@
         }
       });
     }
-	</script>
-
-	<script>
-    $('#modalDelete').on('show.bs.modal', function(){
-      $('#deleteMe').val('');
-      $('#deleteMeBtn').attr("disabled", true);
-    });
-
-    $('#deleteMe').keyup(function(e){
-      if( $('#deleteMe').val() == 'delete me'){
-        $('#deleteMeBtn').attr("disabled", false);
-      }else{
-        $('#deleteMeBtn').attr("disabled", true);
-      }
-    });
 	</script>
 
 @endsection

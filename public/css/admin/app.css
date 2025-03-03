@@ -54068,12 +54068,8 @@ input[type=submit]:disabled {
 #modalDelete .modal-header {
   background-color: #FFBA02;
 }
-#modalDelete .modal-title {
+#modalDelete .modal-header .modal-title {
   color: white;
-  font-size: 2.5em;
-}
-#modalDelete .modal-title:has(> i) {
-  font-size: 5em;
 }
 #modalDelete .modal-footer {
   border-top: none;

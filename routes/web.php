@@ -64,9 +64,10 @@ Route::prefix('admin')->middleware('auth')->group(function (){
 //  Users
   Route::get('users', 'Admin\UserController@index')->name('admin.user.index');
   Route::get('user/create', 'Admin\UserController@create')->name('admin.user.create');
+  Route::post('user/store', 'Admin\UserController@store')->name('admin.user.store');
   Route::get('user/{id}', 'Admin\UserController@show')->name('admin.user.show');
   Route::patch('user/edit/{id}', 'Admin\UserController@update')->name('admin.user.update');
-  Route::get('user/delete/{id}', 'Admin\UserController@destroy')->name('admin.user.destroy');
+  Route::delete('user/delete/{id}', 'Admin\UserController@destroy')->name('admin.user.destroy');
 
 
 //  Categories

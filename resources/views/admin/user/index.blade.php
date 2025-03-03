@@ -9,7 +9,24 @@
 @endsection
 
 @section('content')
+	<div class="container-fluid">
+		{{-- Breadcrumb--}}
+		<div class="row">
+			<div class="col-12 px-0">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+						<li class="breadcrumb-item active">Users</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		{{-- /End Breadcrumb--}}
+
+	</div>
+
 	<div class="container">
+		{{-- Messages --}}
 		@if (session('status'))
 			<div class="row justify-content-center">
 				<div class="alert alert-success col-12 col-md-8">
@@ -23,6 +40,8 @@
 				</div>
 			</div>
 		@endif
+		{{--/ End Messages --}}
+
 		{{-- Section: Table --}}
 		<section>
 			<div class="card card-cascade narrower z-depth-0">
