@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
       'gender' => true,
       'name' => 'Abraham',
       'last_name' => 'Gonzalez',
-      'password' => Hash::make('Gonzalez290996?'),
+      'password' => Hash::make('password'),
       'country' => 'Venezuela',
       'state' => 'Miranda',
       'city' => 'Guarenas',

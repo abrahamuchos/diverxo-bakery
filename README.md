@@ -1,79 +1,129 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Diverxo Bakery
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+*Diverxo Bakery* is a web development project built on the robust Laravel framework, following the traditional HTTP
+model. More than just an online bakery, this project serves as a versatile template for future e-commerce initiatives.
+With a solid and adaptable structure, *Diverxo Bakery* offers all the essential functionalities of an online store,
+except the checkout process, which is designed to be customized and adapted to the specific needs of each
+project. This project demonstrates Laravel's potential to create scalable and customizable e-commerce solutions, serving
+as a solid foundation for future ventures in the digital world.
 
-## About Laravel
+## ✅ Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- User Authentication (to user or admin)
+- Show products
+    - Show products by category
+    - Pagination
+    - Filter products (by category or price)
+- Show categories
+- Show products details
+    - Related products
+- Cart
+    - Show cart
+    - Add products to cart
+    - Remove products from cart
+    - Update products quantity
+- User Profile
+    - Edit profile
+    - Add or remove cards
+    - Show orders
+    - Show invoice
+    - Change password
+- Wish List
+- Contact us form
+- Show invoices
+- Email Notification
+- Administrator
+    - Dashboard
+    - Product Management (CRUD to products)
+    - Category Management (CRUD to categorize)
+    - Order Management (CRUD to orders)
+    - Cart Management (CRUD to cart)
+    - Invoice Management (CRUD to invoices)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ⚙️ Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel 7
+- PHP 7.2
+- PostgreSQL 12
+- bumbummen99/shoppingcart 2.9
+- cartalyst/stripe-laravel 12.0
+- Bootstrap 4.5
+- laravel-mix 5.0
+- popper.js 1.12
+- axios 0.19
 
-## Learning Laravel
+## 💾 Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Install and run
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone and move to folder
 
-## Laravel Sponsors
+```bash
+$ git clone git@github.com:abrahamuchos/diverxo-bakery.git
+$ cd diverxo-bakery
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. Install dependecies
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+```bash
+$  composer install
+```
 
-## Contributing
+3. Create a copy of the `.env.example` file and rename it to `.env`. Next, configure the necessary environment
+   variables.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Generate an application key by running `php artisan key:generate`.
 
-## Code of Conduct
+5. Run `php artisan migrate` to create the database tables.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Run `php artisandb:seed` to create dummy data and admin user.
 
-## Security Vulnerabilities
+7. Run `php artisan serve` to start the Laravel development server.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📦 Environment Variables
 
-## License
+To run this project, you will need to add the following environment variables to your .env file
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+APP_DEBUG
+
+DB_HOST
+DB_PORT
+DB_DATABASE
+DB_USERNAME
+DB_PASSWORD
+
+MAIL_MAILER
+MAIL_HOST
+MAIL_PORT
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_FROM_ADDRESS
+
+STRIPE_KEY
+STRIPE_PUBLIC_KEY
+STRIPE_LOCALE
+STRIPE_CURRENCY
+STRIPE_CURRENCY_SYMBOL
+
+COMPANY_NAME
+COMPANY_ADDRESS
+COMPANY_PHONE
+```
+
+## 🗂️ Docs
+
+Check data into `docs/Productos Bakery.xlsx` file.
+
+Check the [Laravel documentation](https://laravel.com/docs/7.x) for more information.
+Check the [Stripe documentation](https://stripe.com/docs) for more information.
+Check the [Shoppingcart documentation](https://packagist.org/packages/bumbummen99/shoppingcart) for more information.
+
+## 🧑‍💻 Authors
+
+- [@abrahamuchos](https://github.com/abrahamuchos)
+- [Contact mail](mailto:abrahamuchos@gmail.com)
+
+## 📄 License
+
+[MIT](https://choosealicense.com/licenses/mit/)
