@@ -7,6 +7,8 @@ except the checkout process, which is designed to be customized and adapted to t
 project. This project demonstrates Laravel's potential to create scalable and customizable e-commerce solutions, serving
 as a solid foundation for future ventures in the digital world.
 
+<img src="/docs/screenshots/home-screen.png" width="750px" alt="home">
+
 ## ✅ Features
 
 - User Authentication (to user or admin)
@@ -118,6 +120,23 @@ Check data into `docs/Productos Bakery.xlsx` file.
 Check the [Laravel documentation](https://laravel.com/docs/7.x) for more information.
 Check the [Stripe documentation](https://stripe.com/docs) for more information.
 Check the [Shoppingcart documentation](https://packagist.org/packages/bumbummen99/shoppingcart) for more information.
+
+## 📷 Screenshots
+
+**Home**
+
+<img src="/docs/screenshots/home.png" width="750px" alt="home-screenshot">
+
+**Product detail**
+<img src="/docs/screenshots/products-details-with-description.png" width="750px" alt="product-screenshot">
+
+**Admin dashboard**
+<img src="/docs/screenshots/admin-dashboard.png" width="750px" alt="admin-screenshot">
+
+**Admin order detail**
+<img src="/docs/screenshots/admin-order-detail.png" width="750px" alt="admin-order-screenshot">
+
+**And More...**
 
 ## 🧑‍💻 Authors
 
