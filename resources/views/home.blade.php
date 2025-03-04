@@ -288,7 +288,7 @@
 	</script>
 
 	{{-- Google Maps--}}
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYH8-bg4dKYolktWGdZDHIYPEpdZA7i7Y&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&callback=initMap" async defer></script>
 	<script>
     var map;
     window.scrollTo(0, 0);
